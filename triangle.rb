@@ -15,6 +15,16 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  if a == 0 && b == 0 && c == 0
+    raise TriangleError
+  elsif a < 0 || b < 0 || c < 0
+    raise TriangleError
+  elsif (a + b) <= c || (a + c) <= b || (b + c) <= a
+    raise TriangleError
+  end
+
+  # Determine number of sides of unique length. The length of the
+  # uniq array tells us what kind of triangle we have
   case [a,b,c].uniq.size
   when 1 then :equilateral
   when 2 then :isosceles
